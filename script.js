@@ -74,3 +74,55 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+/*
+let arr = ['a', 'b ', 'c', 'd', 'e']
+
+//------------------------------------- SLICE : doesn't change the original array
+console.log(arr.slice(2)); // first argument is inclusive and it starts from 0 => ['c', 'd', 'e']
+console.log(arr.slice(2, 4)); // last argument is exclusive and it starts counting from 1(or -1 for negative arguments) => ['c', 'd']
+console.log(arr.slice(-2)); // ['d', 'e']
+console.log(arr.slice(-1)); // ['e']
+console.log(arr.slice(1, -2)); // ['b ', 'c']
+
+// we can use slice for shallow copy
+
+console.log(arr.slice()); // we can also do it by spread operator console.log([...arr])
+
+//-------------------------------------- SPLICE : Acts like (NOT completely) slice but it mutates the original array
+
+// first element exactly like slice
+// second element is the number of items starting from first element to be deleted
+arr.splice(-1);
+console.log(arr);
+arr.splice(1, 2);
+console.log(arr);
+
+// ------------------------------------- REVERSE: mutates the original array
+ arr = ['a', 'b ', 'c', 'd', 'e']
+const arr2 = ['j', 'i', 'h', 'g', 'f']
+console.log(arr2.reverse());
+
+// ------------------------------------- CONCAT: Doesn't mutate the original array
+const letters = arr.concat(arr2)
+console.log(letters); // also can use spread operator: console.log([...arr, ...arr2]);
+
+// JOIN
+console.log(letters.join(' - '));
+*/
+// ----------------------------------------------------------150. the new add method
+
+const arr = [23, 11, 64];
+console.log(arr[0]);
+console.log(arr.at(0));
+
+// Getting the last element
+console.log(arr[arr.length - 1]);
+console.log(arr.slice(-1)[0]);
+console.log(arr.at(-1));
+console.log(arr.at(-2));
+
+//  It also works on strings as well
+
+console.log('jonas'.at(0));
+console.log('jonas'.at(-1));
+
