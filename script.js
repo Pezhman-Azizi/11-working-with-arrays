@@ -191,3 +191,25 @@ uniqueCurrencies.forEach(function (value, _, map) {
 // ----------------------------------------------------------153. Project Bankist app:
 
 // ----------------------------------------------------------154. creating DOM elements
+
+// ----------------------------------------------------------155. Challenge-1
+
+
+const checkDogs = function (arr1, arr2){
+  const correctedJulia = [...arr1].slice(1, -2);
+  console.log('julia copied corrected data: ', correctedJulia);
+
+  const bothArr = [...correctedJulia, ...arr2]
+  console.log(bothArr);
+
+  bothArr.forEach(function(age, i){
+    if (age >= 3){
+      console.log(`Dog number ${i+1} is an adult, and it is ${age} years old`);
+    }else{
+      console.log(`Dog number ${i+1} is still a puppy`);
+    }
+  })
+}
+
+// checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3])
+checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4])
