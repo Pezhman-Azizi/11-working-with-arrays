@@ -194,7 +194,7 @@ uniqueCurrencies.forEach(function (value, _, map) {
 
 // ----------------------------------------------------------155. Challenge-1
 
-
+/*
 const checkDogs = function (arr1, arr2){
   const correctedJulia = [...arr1].slice(1, -2);
   console.log('julia copied corrected data: ', correctedJulia);
@@ -213,3 +213,6 @@ const checkDogs = function (arr1, arr2){
 
 // checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3])
 checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4])
+*/
+
+// ----------------------------------------------------------156. Data Transformations: map, filter, reduce
