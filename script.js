@@ -255,3 +255,28 @@ const movementDescriptions = movements.map((mov, i) =>
 console.log(movementDescriptions.join('\n'));
 */
 // ----------------------------------------------------------158. Computing usernames
+
+// ----------------------------------------------------------159. the filter method
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+console.log(movements);
+
+// filter for deposits:
+const deposits = movements.filter(function(mov){
+  return mov>0;
+})
+console.log(deposits);
+
+// filter for withdrawal:
+const withdrawals = movements.filter(mov => mov<0)
+console.log(withdrawals);
+
+// filter with for loop:
+
+const deposits2 = []
+for (const mov of movements){
+  if (mov > 0){
+    deposits2.push(mov)
+  }
+}
+console.log(deposits2);
+
