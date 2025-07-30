@@ -80,6 +80,21 @@ const displayMovements = function(movements){
 
 displayMovements(account1.movements)
 
+const createUserName = function(accs){
+
+  accs.forEach(function(acc){
+    acc.username = acc.owner
+    .toLocaleLowerCase()
+    .split(' ')
+    .map(name => name[0])
+    .join('');
+  });
+
+}
+
+createUserName(accounts);
+console.log(accounts);
+
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -217,7 +232,7 @@ checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4])
 
 // ----------------------------------------------------------156. Data Transformations: map, filter, reduce
 // ----------------------------------------------------------157. The Map Method
-
+/*
 const euroToUsd = 1.1;
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
@@ -238,3 +253,5 @@ console.log(movementsToUsd);
 const movementDescriptions = movements.map((mov, i) =>
 `Movement ${i+1} you ${mov>0? 'deposited' : 'withdrew'} the ${Math.abs(mov)}`)
 console.log(movementDescriptions.join('\n'));
+*/
+// ----------------------------------------------------------158. Computing usernames
