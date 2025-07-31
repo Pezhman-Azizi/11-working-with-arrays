@@ -289,7 +289,7 @@ console.log(deposits2);
 
 
 // ----------------------------------------------------------160. the reduce method
-
+/*
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
@@ -311,3 +311,33 @@ const max = movements.reduce((acc, mov)=> {
   else return mov;
 })
 console.log(max);
+*/
+
+// ----------------------------------------------------------161. Challenge-2:
+
+const calcAverageHumanAge = function(ages){
+  // 1.
+
+  const humanAges = ages.map(function(age){
+    if (age <= 2){
+      return age*2;
+    }else if(age > 2){
+      return 16 + age*4;
+    }
+  });
+  console.log(humanAges);
+
+  // 2.
+  const filteredHumanAges = humanAges.filter(function (humanAge){
+    if (humanAge >= 18) return humanAge;
+  })
+  console.log(filteredHumanAges);
+
+
+  // 3.
+  const averageHuman = humanAges.reduce((acc, age) => (acc+age, 0)/filteredHumanAges.length);
+  console.log(averageHuman);
+
+  return averageHuman;
+}
+calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
