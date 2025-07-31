@@ -93,8 +93,13 @@ const createUserName = function(accs){
 }
 
 createUserName(accounts);
-console.log(accounts);
 
+
+const calcDisplayBalance = function(movements){
+  const balance = movements.reduce((acc, mov) => acc+mov, 0)
+  labelBalance.textContent = `${balance} EUR`;
+}
+calcDisplayBalance(account1.movements);
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -145,7 +150,7 @@ console.log(letters); // also can use spread operator: console.log([...arr, ...a
 console.log(letters.join(' - '));
 */
 // ----------------------------------------------------------150. the new add method
-
+/*
 const arr = [23, 11, 64];
 console.log(arr[0]);
 console.log(arr.at(0));
@@ -160,7 +165,7 @@ console.log(arr.at(-2));
 
 console.log('jonas'.at(0));
 console.log('jonas'.at(-1));
-
+*/
 // ----------------------------------------------------------151. Looping Arrays: forEach
 /*
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
@@ -257,6 +262,7 @@ console.log(movementDescriptions.join('\n'));
 // ----------------------------------------------------------158. Computing usernames
 
 // ----------------------------------------------------------159. the filter method
+/*
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 console.log(movements);
 
@@ -279,4 +285,29 @@ for (const mov of movements){
   }
 }
 console.log(deposits2);
+*/
 
+
+// ----------------------------------------------------------160. the reduce method
+
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const balance = movements.reduce((acc, curr) => acc+curr, 0)
+// console.log(`iteration number ${i}: ${acc}`)
+console.log(balance);
+
+
+let acc = 0;
+for(const mov of movements){
+   acc+=mov;
+}
+console.log(acc);
+
+// Maximum value of movements
+
+const max = movements.reduce((acc, mov)=> {
+  if (acc>mov) return acc;
+  else return mov;
+})
+console.log(max);
