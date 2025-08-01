@@ -382,7 +382,7 @@ console.log(totalDepositsUSD);
 
 */
 // ----------------------------------------------------------162. The Magic of Chaining Methods
-
+/*
 const calcAverageHumanAge = function(ages){
 
   const humanAges = ages
@@ -394,3 +394,23 @@ const calcAverageHumanAge = function(ages){
 
 }
 calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3])
+*/
+
+// ----------------------------------------------------------163. The find method
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const firstWithdrawal = movements.find(mov => mov <0)
+
+console.log(movements);
+console.log(firstWithdrawal);
+
+console.log(accounts);
+
+const account = accounts.find(acc=> acc.owner === 'Jessica Davis')
+console.log(account);
+
+// doing it with for loop:
+for (const acc of accounts){
+  if(acc.owner === 'Jessica Davis'){
+    console.log(acc);
+  }
+}
