@@ -359,17 +359,17 @@ const calcAverageHumanAge = function(ages){
 
 
   // 3.
-  const averageHuman = humanAges.reduce((acc, age) => (acc+age, 0)/filteredHumanAges.length);
+  const averageHuman = humanAges.reduce((acc, age) => acc+age, 0)/filteredHumanAges.length;
   console.log(averageHuman);
 
   return averageHuman;
 }
 calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+
 */
 
-
 // ----------------------------------------------------------162. The Magic of Chaining Methods
-
+/*
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 const euroToUSD = 1.1;
 // Pipeline
@@ -379,3 +379,18 @@ const totalDepositsUSD = movements
 .reduce((acc, mov, i, arr)=> acc+mov, 0)
 
 console.log(totalDepositsUSD);
+
+*/
+// ----------------------------------------------------------162. The Magic of Chaining Methods
+
+const calcAverageHumanAge = function(ages){
+
+  const humanAges = ages
+  .map(age => age<= 2 ? age*2 : 16 + age * 4)
+  .filter(age => age>=18)
+  .reduce((acc, age, i, arr)=> acc+age/arr.length, 0);
+
+  console.log(humanAges);
+
+}
+calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3])
