@@ -206,7 +206,18 @@ btnClose.addEventListener('click', function(e){
    inputCloseUsername.value = inputLoginPin.value = '';
 })
 
+// ----------------------------------------------------------168. The New findLast and findLastIndex Methods
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300]
+console.log(movements);
+const lastWithdrawal = movements.findLast(mov => mov<0);
+console.log(lastWithdrawal);
 
+// challenge: return this string:
+'Your latest large movement was x movements ago'
+
+const x = movements.findLastIndex(mov => Math.abs(mov) > 2000)
+console.log(x);
+console.log(`Your latest large movement was ${movements.length - x } movements ago`);
 
 
 /////////////////////////////////////////////////
