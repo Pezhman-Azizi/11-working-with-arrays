@@ -186,6 +186,27 @@ btnTransfer.addEventListener('click', function(e){
 
 })
 
+
+btnLoan.addEventListener('click', function(e){
+  e.preventDefault();
+
+  const amount = Number(inputLoanAmount.value);
+
+  if(amount > 0 &&
+     currentAccount.movements.some(mov => mov >= amount * 0.1)){
+    // add movement
+    currentAccount.movements.push(amount)
+    // Update UI
+    updateUI(currentAccount);
+  }
+
+  inputLoanAmount.textContent = '';
+  inputLoanAmount.blur();
+})
+
+
+
+
 // ----------------------------------------------------------167-the-findIndex-method
 
 btnClose.addEventListener('click', function(e){
@@ -218,6 +239,17 @@ console.log(lastWithdrawal);
 const x = movements.findLastIndex(mov => Math.abs(mov) > 2000)
 console.log(x);
 console.log(`Your latest large movement was ${movements.length - x } movements ago`);
+
+// ----------------------------------------------------------169. The Some and every
+// Equality
+console.log(movements.includes(-130));
+// condition
+const anyDeposits = movements.some(mov => mov > 0)
+console.log(anyDeposits);
+
+
+
+
 
 
 /////////////////////////////////////////////////
@@ -512,3 +544,15 @@ for (const acc of accounts){
 }
 */
 // ----------------------------------------------------------165. implementing-log-in:
+// ----------------------------------------------------------169. Some and every
+// some=> if any of the elements meets the condition it returns true
+// every=> if all of the elements meet the condition it returns true
+console.log(movements.every(mov => mov > 0));
+console.log(account4.movements.every(mov => mov > 0));
+
+// Separate call back
+
+const deposit = mov => mov > 0
+console.log(movements.some(deposit));
+console.log(movements.every(deposit));
+console.log(movements.filter(deposit));
