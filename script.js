@@ -60,6 +60,7 @@ const inputTransferAmount = document.querySelector('.form__input--amount');
 const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
+/*
 
 const displayMovements = function(movements){
 
@@ -249,7 +250,7 @@ console.log(anyDeposits);
 
 
 
-
+*/
 
 
 /////////////////////////////////////////////////
@@ -560,7 +561,7 @@ console.log(movements.filter(deposit));
 */
 
 // ----------------------------------------------------------170. flat and flatMap method
-
+/*
 const arr = [[1,2,3], [4,5,6], 7, 8]
 console.log(arr.flat());
 
@@ -590,3 +591,84 @@ const overallBalance = accounts
 .reduce((acc, mov) => acc+ mov, 0)
 console.log(overallBalance);
 // just so you know that flatMap goes one deeper alone not more!
+*/
+// ----------------------------------------------------------171. Challenge-4
+
+const dogs = [
+{ weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+{ weight: 8, curFood: 200, owners: ['Matilda'] },
+{ weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+{ weight: 32, curFood: 340, owners: ['Michael'] },
+];
+
+///////////////////--------------------  1.
+const calcRecommendedFoodPortion = function(dogs){
+  dogs.forEach(dog => {
+    dog.recommendedFood = Math.floor(dog.weight ** 0.75 * 28);
+  })
+}
+
+calcRecommendedFoodPortion(dogs);
+console.log(dogs);
+
+///////////////////--------------------  2.
+const findSarah = function(dogs){
+  return dogs.find(dog => dog.owners.includes('Sarah'));
+}
+console.log(findSarah(dogs));
+
+///////////////////--------------------  3.
+const findTooMuchOwners = function(){
+
+  const dogsEatingTooMuch = dogs.filter(dog => dog.curFood > dog.recommendedFood)
+  console.log(dogsEatingTooMuch);
+
+  const ownersEatTooMuch = dogsEatingTooMuch.map(dog => dog.owners).flat();
+  console.log(ownersEatTooMuch);
+
+  return ownersEatTooMuch;
+};
+
+findTooMuchOwners(dogs);
+
+const findTooLittleOwners = function(){
+  const dogsEatingTooLittle = dogs.filter(dog => dog.curFood < dog.recommendedFood)
+  console.log(dogsEatingTooLittle);
+
+  const ownersEatTooLittle = dogsEatingTooLittle.map(dog => dog.owners).flat();
+  console.log(ownersEatTooLittle);
+
+  return ownersEatTooLittle;
+};
+
+findTooLittleOwners(dogs)
+
+///////////////////-------------------- 4.
+
+console.log(`${findTooMuchOwners(dogs).join(' and ')}'s dogs eat too much`);
+
+console.log(`${findTooLittleOwners(dogs).join(' and ')}'s dogs eat too little!`);
+
+///////////////////-------------------- 5.
+
+const exactly = dogs.some(dog => dog.curFood === dog.recommendedFood)
+console.log('exactly',  exactly);
+
+///////////////////-------------------- 6.
+
+const checkEatingOkay =  dog =>
+  dog.curFood > (dog.recommendedFood * 0.9) && dog.curFood < (dog.recommendedFood * 1.1);
+
+console.log(dogs.every(checkEatingOkay));
+
+///////////////////-------------------- 7.
+
+
+console.log(dogs.filter(checkEatingOkay));
+
+
+///////////////////-------------------- 8.
+const dogsCopy = [...dogs];
+console.log(dogsCopy);
+
+dogs.map(dog => dog.recommendedFood )
