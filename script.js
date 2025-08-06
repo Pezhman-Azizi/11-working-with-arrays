@@ -60,13 +60,18 @@ const inputTransferAmount = document.querySelector('.form__input--amount');
 const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
-/*
 
-const displayMovements = function(movements){
 
-  containerMovements.textContent = '';
+const displayMovements = function(movements, sort = false){
 
-  movements.forEach(function(mov, i) {
+  // sort = false, is set to prevent the default sorting right at the start.
+
+  containerMovements.innerHTML = '';
+
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+  // movements.slice(), creates a copy of the original array. it prevents the array of movement to be treated twice.
+
+  movs.forEach(function(mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
     const html =
@@ -206,8 +211,6 @@ btnLoan.addEventListener('click', function(e){
 })
 
 
-
-
 // ----------------------------------------------------------167-the-findIndex-method
 
 btnClose.addEventListener('click', function(e){
@@ -249,8 +252,14 @@ const anyDeposits = movements.some(mov => mov > 0)
 console.log(anyDeposits);
 
 
+let sorted = false;
+btnSort.addEventListener('click', function (e) {
+  console.log('pressed');
 
-*/
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
+})
 
 
 /////////////////////////////////////////////////
@@ -593,7 +602,7 @@ console.log(overallBalance);
 // just so you know that flatMap goes one deeper alone not more!
 */
 // ----------------------------------------------------------171. Challenge-4
-
+/*
 const dogs = [
 { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
 { weight: 8, curFood: 200, owners: ['Matilda'] },
@@ -672,3 +681,31 @@ const dogsCopy = [...dogs];
 console.log(dogsCopy);
 
 dogs.map(dog => dog.recommendedFood )
+*/
+
+// ----------------------------------------------------------172. Sorting-arrays
+/*
+// sort() mutates the original array:
+// writing .sort() only, just works based on sorting the strings by default:
+
+// array of strings
+const owners = ['Jonas', 'Zach', 'Adam', 'Martha']
+console.log(owners.sort());
+console.log(owners);
+
+// array of numbers
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+console.log(movements);
+console.log(movements.sort());
+
+// if the call back function returns a positive => B before A => switch
+// if the call back function returns a negative => A before B => keep
+
+// ascending
+movements.sort((a, b) => a - b)
+console.log('ascending', movements);
+
+// descending
+movements.sort((a, b) => b - a)
+console.log('descending', movements);
+*/
