@@ -814,5 +814,114 @@ console.log(movements);
 
 //-----------------------------------------------------------------Summary: which array method to use:
 
+// see the screenshots in the PR on github
 
+//-----------------------------------------------------------------177. Array Methods Practice:
+
+// 1. calculate the total deposits to the bank:
+
+// --------------first approach:
+
+// const allMovements = accounts.flatMap(acc => acc.movements)
+// console.log(allMovements);
+
+// const allDeposits = allMovements.filter(mov => mov >0)
+// console.log(allDeposits);
+
+// const totalDeposits = allDeposits.reduce((sum, cur)=> sum+curr, 0);
+// console.log(totalDeposits);
+
+// --------------using chaining:
+
+const bankDepositSum = accounts
+.flatMap(acc => acc.movements)
+.filter(mov => mov > 0)
+.reduce((sum, cur) => sum + cur, 0)
+
+console.log(bankDepositSum);
+
+// 2. how many deposits are in the bank with the amount of at least 1000
+
+// first approach
+// const numDepositsMOreThan1000 = accounts
+// .flatMap(acc => acc.movements)
+// .filter(mov => mov >= 1000)
+// .length
+// console.log(numDepositsMOreThan1000);
+
+// second approach: calculate the num of items using reduce:
+
+const numDepositsMOreThan1000 = accounts
+.flatMap(acc => acc.movements)
+.reduce((count, cur) => cur >= 1000? ++count : count, 0)
+console.log(numDepositsMOreThan1000);
+
+// prefixed ++ operator:
+
+// const a = 10;
+// console.log(++a);
+// console.log(a);
+
+// const b = 2;
+// console.log(b++);
+// console.log(b);
+
+
+// 3. create a new object: create an object which contains the sums of deposits and withdrawals
+
+const {deposits, withdrawals} = accounts
+.flatMap(acc => acc.movements)
+.reduce((sums, cur) => {
+  // cur > 0?  (sums.deposits += cur) : (sums.withdrawals += cur);
+  sums[cur > 0? 'deposits' : 'withdrawals'] += cur;
+  return sums
+},
+{deposits: 0, withdrawals: 0})
+console.log(deposits, withdrawals);
+
+
+
+// 4.
+// this is a nice title -> This Is a Nice Title
+
+////////////////////// first approach
+
+// const convertTitlesCase = function(title){
+
+//   const exceptions = ['a', 'an', 'the', 'but', 'or', 'on', 'in', 'with'];
+
+//   const titleCaseArr = title
+//   .toLowerCase()
+//   .split(' ')
+//   console.log(titleCaseArr);
+
+//   const titleCaseCapital = titleCaseArr.map(word => `${word[0].toUpperCase()}` + `${word.slice(1)}`);
+//   console.log(titleCaseCapital);
+
+//   return titleCaseCapital.join(' ')
+
+// }
+// console.log(convertTitlesCase('this is a nice title'));
+// console.log(convertTitlesCase('this is a LONG title but not too long'));
+// console.log(convertTitlesCase('and here is another title with an EXAMPLE'));
+
+////////////////////// second approach:
+
+const convertTitlesCase2 = function(title){
+
+  const capitalaize = str => str[0].toUpperCase() + str.slice(1);
+
+  const exceptions = ['a', 'an', 'the','and', 'but', 'or', 'on', 'in', 'with'];
+
+  const titleCase = title
+  .toLocaleLowerCase()
+  .split(' ')
+  .map(word => exceptions.includes(word)? word : word[0].toUpperCase() + word.slice(1))
+  .join(' ');
+
+  return capitalaize(titleCase);
+}
+console.log(convertTitlesCase2('this is a nice title'));
+console.log(convertTitlesCase2('this is a LONG title but not too long'));
+console.log(convertTitlesCase2('and here is another title with an EXAMPLE'));
 
