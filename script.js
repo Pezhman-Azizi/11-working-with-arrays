@@ -779,6 +779,8 @@ labelBalance.addEventListener('click', function(){
 })
 */
 //-----------------------------------------------------------------Non-sedtructive-alternatives-toReversed-toSorted-toSpliced-with:
+/*
+
 // console.log(movements);
 // const reversedMovements = movements.reverse()
 // console.log(reversedMovements);
@@ -808,3 +810,9 @@ console.log(movements);
 const newMovements = movements.with(1, 2000);
 console.log(newMovements);
 console.log(movements);
+*/
+
+//-----------------------------------------------------------------Summary: which array method to use:
+
+
+
