@@ -716,7 +716,7 @@ console.log('descending', movements);
 
 
 // ----------------------------------------------------------173. array-grouping:
-
+/*
 console.log(movements);
 const groupedMovements = Object.groupBy(
   movements, movement =>
@@ -736,4 +736,75 @@ console.log(groupedByActivity);
 const groupedByType = Object.groupBy(accounts, account => account.type);
 
 console.log(groupedByType);
-f
+*/
+
+// ----------------------------------------------------------174. More Ways of Creating and Filling Arrays
+/*
+const arr = [1, 2, 3, 4, 5, 6, 7]
+
+// EMpty arrays + fill method
+const z = new Array(7)
+console.log(z);
+
+// z.fill(1)
+z.fill(1, 3, 5)
+console.log(z);
+
+arr.fill(23, 2, 6)
+console.log(arr);
+
+// Array.from:
+
+const y = Array.from({length: 7}, () => 1);
+console.log(y);
+
+const w = Array.from({length: 7}, (_, i) => i+1)
+console.log(w);
+
+console.log('test', Math.floor( Math.random()*6)+1);
+
+
+const v = Array.from({length: 100}, (_, i) => Math.floor( Math.random()*6)+1)
+console.log(v);
+
+labelBalance.addEventListener('click', function(){
+
+  const movementsUI = Array.from(
+    document.querySelectorAll('.movements__value'), el => Number(el.textContent.replace('€', '')));
+
+  console.log(movementsUI);
+
+
+  const movementsUI2 = [...document.querySelectorAll('.movements__value')]
+})
+*/
+//-----------------------------------------------------------------Non-sedtructive-alternatives-toReversed-toSorted-toSpliced-with:
+// console.log(movements);
+// const reversedMovements = movements.reverse()
+// console.log(reversedMovements);
+// console.log(movements);
+
+// using reverse method will mutate the original array.
+//  we can use slice method to create a copy like down below and then reverse:
+
+console.log(movements);
+const reversedMovements = movements.slice().reverse()
+console.log(reversedMovements);
+console.log(movements);
+
+//////////////apart from doing these, there is another method that reverse and doesn't mutate the original array:
+
+console.log(movements);
+const reversedMovements2 = movements.toReversed()
+console.log(reversedMovements2);
+console.log(movements);
+
+////////////////////////  same logic we have two others: toSorted and toSpliced.
+// changing a specific element
+// movements[1] =2000;
+// it mutates the original array
+console.log(movements);
+
+const newMovements = movements.with(1, 2000);
+console.log(newMovements);
+console.log(movements);
