@@ -35,9 +35,9 @@ If you’re interested in learning JavaScript, I recommend enrolling directly:
 
 This repository:
 
-- 📅 Helps me track my learning progress over time
-- 💻 Contains my code solutions and notes for revision
-- 🧪 Serves as a personal sandbox to experiment with JavaScript concepts
+- 📅 Helps me track my learning progress over time  
+- 💻 Contains my code solutions and notes for revision  
+- 🧪 Serves as a personal sandbox to experiment with JavaScript concepts  
 
 ---
 
@@ -52,13 +52,13 @@ This repository:
 
 ## ✅ Status
 
-✔️ Completed all core challenges in this section
+✔️ Completed all core challenges in this section  
 🛠️ May update with extra practice and notes
 
 ---
 
 ## 🙋 Want to Learn Too?
 
-**Instructor:** Jonas Schmedtmann
-**Course:** [The Complete JavaScript Course 2025](https://www.udemy.com/course/the-complete-javascript-course/)
+**Instructor:** Jonas Schmedtmann  
+**Course:** [The Complete JavaScript Course 2025](https://www.udemy.com/course/the-complete-javascript-course/)  
 ⭐️ 4.7/5 · 987,000+ students enrolled
